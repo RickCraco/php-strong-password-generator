@@ -1,6 +1,8 @@
 <?php
 session_start();
 
+var_dump($_SESSION['password']);
+
 if (isset($_SESSION['password'])) {
     $password = $_SESSION['password'];
     echo '<h2>Your Password:</h2>';

@@ -40,9 +40,12 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
     $password = generatePassword($length, $numbers, $letters, $symbols, $repete);
     //var_dump($password);
 
-    if(isset($_POST['redirect']) && $_POST['redirect'] == 'true'){
+    if($password){
         $_SESSION['password'] = $password;
         header('Location: showpassword.php');
         exit();
+    }else{
+        echo '<h2>Your Password:</h2>';
+        echo '<p>' . $password . '</p>';
     }
 ?>
