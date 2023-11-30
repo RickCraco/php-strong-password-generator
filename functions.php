@@ -8,21 +8,23 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
     if ($use_letters) $characters .= 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     if ($use_symbols) $characters .= '!@#$%^&*()-_+=<>?';
 
-    if (!$characters) {
-        $characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_+=<>?';
-    }
-
     $password = '';
 
-    for ($i = 0; $i < $length; $i++) {
-        $index = rand(0, strlen($characters) - 1);
-        $password .= $characters[$index];
-
-        if (!$allow_repetition) {
-            $characters = substr_replace($characters, '', $index, 1);
-            $charactersLength--;
+    if($allow_repetition == true){
+        for ($i = 0; $i < $length; $i++) {
+            $index = rand(0, strlen($characters) - 1);
+            $password .= $characters[$index];
+        }
+    }else{
+        while(strlen($password) < $length){
+            $newCharacter = $characters[rand(0, strlen($characters) - 1)];
+            if(!strpos($password, $newCharacter)){
+                $password .= $newCharacter;
+            }
         }
     }
+
+    
 
     return $password;
 }
@@ -34,13 +36,8 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
     $symbols = isset($_POST['symbols']);
     $repete = isset($_POST['repete']);
 
-    var_dump($length);
-    var_dump($numbers);
-    var_dump($letters);
-    var_dump($symbols);
-    var_dump($repete);
-    //$password = generatePassword($length, $numbers, $letters, $symbols, $repete);
-    //var_dump($password);
+    $password = generatePassword($length, $numbers, $letters, $symbols, $repete);
+    var_dump($password);
 
     /*
     if($password){
