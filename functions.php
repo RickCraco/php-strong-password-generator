@@ -26,7 +26,7 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
     }
 
     
-
+    $_SESSION['password'] = $password;
     return $password;
 }
 
@@ -38,14 +38,11 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
     $repete = isset($_POST['repete']);
 
     $password = generatePassword($length, $numbers, $letters, $symbols, $repete);
-    var_dump($password);
+    //var_dump($password);
 
-    /*
-    if($password){
+    if(isset($_POST['redirect']) && $_POST['redirect'] == 'true'){
         $_SESSION['password'] = $password;
         header('Location: showpassword.php');
         exit();
-    }else{
-        echo 'Error generating password';
-    } */
+    }
 ?>
