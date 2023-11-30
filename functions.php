@@ -13,10 +13,9 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
     }
 
     $password = '';
-    $charactersLength = strlen($characters);
 
     for ($i = 0; $i < $length; $i++) {
-        $index = rand(0, $charactersLength - 1);
+        $index = rand(0, strlen($characters) - 1);
         $password .= $characters[$index];
 
         if (!$allow_repetition) {
