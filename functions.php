@@ -27,4 +27,22 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
     return $password;
 }
 
+
+if(isset($_POST['length']) && isset($_POST['numbers']) && isset($_POST['letters']) && isset($_POST['symbols']) && isset($_POST['repete'])){
+    $length = $_POST['length'];
+    $numbers = $_POST['numbers'];
+    $letters = $_POST['letters'];
+    $symbols = $_POST['symbols'];
+    $repete = $_POST['repete'];
+
+    $password = generatePassword($length, $numbers, $letters, $symbols, $repete);
+
+    if($password){
+        $_SESSION['password'] = $password;
+        header('Location: result.php');
+        exit();
+    }else{
+        echo 'Error generating password';
+    }
+}
 ?>
