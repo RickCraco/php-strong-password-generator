@@ -40,8 +40,9 @@ if(isset($_POST['length'])){
     $password = generatePassword($length, $numbers, $letters, $symbols, $repete);
 }
     
-    //var_dump($password);
+    var_dump($password);
 
+    /*
     if($password){
         $_SESSION['password'] = $password;
         header('Location: showpassword.php');
@@ -49,5 +50,5 @@ if(isset($_POST['length'])){
     }else{
         echo '<h2>Your Password:</h2>';
         echo '<p>' . $password . '</p>';
-    }
+    } */
 ?>
