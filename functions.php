@@ -14,7 +14,7 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
         for ($i = 0; $i < $length; $i++) {
             $index = rand(0, strlen($characters) - 1);
             $password .= $characters[$index];
-            var_dump($password);
+            //var_dump($password);
         }
     }else{
         while(strlen($password) < $length){
