@@ -2,7 +2,7 @@
 session_start();
 
 function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $allow_repetition) {
-
+    
     $characters = '';
     if ($use_numbers) $characters .= '0123456789';
     if ($use_letters) $characters .= 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -14,6 +14,7 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
         for ($i = 0; $i < $length; $i++) {
             $index = rand(0, strlen($characters) - 1);
             $password .= $characters[$index];
+            var_dump($password);
         }
     }else{
         while(strlen($password) < $length){
@@ -30,7 +31,7 @@ function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $al
 }
 
 
-    $length = isset($_POST['length']);
+    $length = $_POST['length'];
     $numbers = isset($_POST['numbers']);
     $letters = isset($_POST['letters']);
     $symbols = isset($_POST['symbols']);
