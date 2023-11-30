@@ -39,7 +39,7 @@ if(isset($_POST['length']) && isset($_POST['numbers']) && isset($_POST['letters'
 
     if($password){
         $_SESSION['password'] = $password;
-        header('Location: result.php');
+        header('Location: showpassword.php');
         exit();
     }else{
         echo 'Error generating password';
