@@ -36,13 +36,15 @@ if(isset($_POST['length']) && isset($_POST['numbers']) && isset($_POST['letters'
     $repete = $_POST['repete'];
 
     $password = generatePassword($length, $numbers, $letters, $symbols, $repete);
+    var_dump($password);
 
+    /*
     if($password){
         $_SESSION['password'] = $password;
         header('Location: showpassword.php');
         exit();
     }else{
         echo 'Error generating password';
-    }
+    } */
 }
 ?>
