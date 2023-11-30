@@ -40,7 +40,8 @@ if(isset($_POST['length'])){
     $password = generatePassword($length, $numbers, $letters, $symbols, $repete);
 }
     
-    var_dump($password);
+    echo '<h2>Your Password:</h2>';
+    echo '<h3>' . $password . '</h3>';
 
     /*
     if($password){
