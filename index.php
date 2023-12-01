@@ -1,3 +1,10 @@
+<?php 
+session_start();
+
+$_SESSION['prova'] = 'ciao';
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +18,7 @@
 
     <h1 class="text-center">Password Generator</h1>
     <div class="container">
-        <form action="functions.php" method="post">
+        <form action="functions.php" method="POST">
 
             <label for="length">Password length: </label>
             <input type="number" name="length" min="6" max="20" class="form-control w-25">
