@@ -28,7 +28,7 @@
         return $_SESSION['password'] = $password;
     }
 
-    var_dump($_SESSION['prova']);
+    //var_dump($_SESSION['prova']);
 
     if(isset($_POST['length'])){
         $length = $_POST['length'];
@@ -43,10 +43,10 @@
         //header('Location: showpassword.php');
         //exit();
     }
-        /*
+        
         echo '<h2>Your Password:</h2>';
         echo '<h3>' . $password . '</h3>';
-        */
+        
         /*
         if($password){
             $_SESSION['password'] = $password;
