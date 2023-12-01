@@ -1,12 +1,21 @@
     <?php
     session_start();
 
-    function generatePassword($length, $use_numbers, $use_letters, $use_symbols, $allow_repetition) {
+    function generatePassword($length,$allow_repetition) {
         
         $characters = '';
-        if ($use_numbers) $characters .= '0123456789';
-        if ($use_letters) $characters .= 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        if ($use_symbols) $characters .= '!@#$%^&*()-_+=<>?';
+        if(count($_POST['characters']) > 0){
+            if(in_array('numbers', $_POST['characters'])){
+                $characters .= '0123456789';
+            }
+            if(in_array('letters', $_POST['characters'])){
+                $characters .= 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+            }
+            if(in_array('symbols', $_POST['characters'])){
+                $characters .= '!@#$%^&*()-_+=<>?';
+            }
+        }
+
 
         $password = '';
 
@@ -28,16 +37,14 @@
         return $_SESSION['password'] = $password;
     }
 
-    var_dump($_SESSION['prova']);
+    //var_dump($_SESSION['prova']);
 
     if(isset($_POST['length'])){
         $length = $_POST['length'];
-        $numbers = isset($_POST['numbers']);
-        $letters = isset($_POST['letters']);
-        $symbols = isset($_POST['symbols']);
         $repete = isset($_POST['repete']);
 
-        $password=generatePassword($length, $numbers, $letters, $symbols, $repete);
+        $password=generatePassword($length,$repete);
+        var_dump($password);
         //$_SESSION['pippo'] = $password;
         //var_dump($_SESSION['pippo']);
         //header('Location: showpassword.php');

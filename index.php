@@ -26,15 +26,15 @@ $_SESSION['prova'] = 'ciao';
             <br>
 
             <label for="numbers">Use numbers:</label>
-            <input type="checkbox" name="numbers" class="form-check-input">
+            <input type="checkbox" name="numbers" value="numbers" class="form-check-input">
             <br>
 
             <label for="letters">Use letters:</label>
-            <input type="checkbox" name="letters" class="form-check-input">
+            <input type="checkbox" name="letters" value="letters" class="form-check-input">
             <br>
 
             <label for="symbols">Use symbols:</label>
-            <input type="checkbox" name="symbols" class="form-check-input">
+            <input type="checkbox" name="symbols" value="symbols" class="form-check-input">
             <br>
 
             <label for="repete">Repete characters:</label>
