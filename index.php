@@ -8,31 +8,36 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Generatore di password</h1>
+    <h1 class="text-center">Generatore di password</h1>
 
-    <form action="functions.php" method="POST">
-        <label for="length">Inserisci la lunghezza della password</label>
-        <input type="number" name="length">
+    <div class="container d-flex justify-content-center py-4">
+        <form action="functions.php" method="POST">
+            <label for="length">Inserisci la lunghezza della password</label>
+            <input type="number" name="length" class="form-control w-50">
 
-        <br>
+            <br>
 
-        <label for="repetition">Consenti ripetizioni</label>
-        <input type="radio" name="repete" value="1">
-        <label for="repetition">Non consenti ripetizioni</label>
-        <input type="radio" name="repete" value="0">
+            <label for="repetition">Consenti ripetizioni</label>
+            <input type="radio" name="repete" value="1">
+            <label for="repetition">Non consenti ripetizioni</label>
+            <input type="radio" name="repete" value="0">
 
-        <br>
+            <br>
 
-        <label for="letters">Lettere</label>
-        <input type="checkbox" name="characters[]" value="letters">
-        <br>
-        <label for="numbers">Numeri</label>
-        <input type="checkbox" name="characters[]" value="numbers">
-        <br>
-        <label for="symbols">Simboli</label>
-        <input type="checkbox" name="characters[]" value="symbols">
+            <label for="letters">Lettere</label>
+            <input type="checkbox" name="characters[]" value="letters">
+            <br>
+            <label for="numbers">Numeri</label>
+            <input type="checkbox" name="characters[]" value="numbers">
+            <br>
+            <label for="symbols">Simboli</label>
+            <input type="checkbox" name="characters[]" value="symbols">
 
-        <button type="submit">Genera</button>
-    </form>
+            <br>
+
+            <button type="submit" class="btn btn-primary">Genera</button>
+        </form>
+    </div>
+    
 </body>
 </html>
