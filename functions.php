@@ -6,7 +6,7 @@ if(isset($_POST['length'])){
     if(!empty($_POST['repete'])){
         $repete = $_POST['repete'];
     }else{
-        $repete = "0";
+        $repete = ["0"];
     }
     if(!empty($_POST['characters'])){
         $characters = $_POST['characters'];
@@ -45,11 +45,11 @@ function generaPassword($length, $repete, $characters){
         $stringtoUse = $letters.$numbers.$symbols;
     }
 
-    if($repete === "1"){
+    if(in_array('1', $repete)){
         for($i = 0; $i < $length; $i++){
             $password .= $stringtoUse[rand(0, strlen($stringtoUse) - 1)];
         }
-    }elseif($repete === "0"){
+    }elseif(in_array('0', $repete)){
         while(strlen($password) < $length){
             $newCharacter = $stringtoUse[rand(0, strlen($stringtoUse) - 1)];
             if(!strpos($password, $newCharacter)){
